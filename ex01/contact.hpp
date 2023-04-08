@@ -6,6 +6,7 @@ class Contact
 {
     public:
         Contact();
+        ~Contact();
         void set_first_name(std::string n);
         void set_last_name(std::string n);
         void set_nickname(std::string n);

@@ -18,7 +18,6 @@ class Contact
         std::string get_nickname();
         std::string get_phone_number();
         std::string get_darkest_secret();
-
     private:
         std::string _first_name;
         std::string _last_name;

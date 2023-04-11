@@ -2,6 +2,7 @@
 
 PhoneBook::PhoneBook()
 {
+	_count = 0;
     _index = 0;
 }
 
@@ -23,18 +24,28 @@ void    print_line(std::string str)
     }
 }
 
+int		PhoneBook::get_count()
+{
+	return (_count);
+}
+
 void    PhoneBook::Search()
 {
-    for(int index = 0; index < _count; ++index)
-    {
-        std::cout << std::setw(10) << index + 1 << "|";
-        print_line(_contact[index].get_first_name());
-        std::cout << "|";
-        print_line(_contact[index].get_last_name());
-        std::cout << "|";
-        print_line(_contact[index].get_nickname());
-        std::cout << std::endl;
-    }
+	if (_count == 0)
+		std::cout << "There is no any contact saved.\n" <<std::endl;
+	else
+	{
+    	for(int index = 0; index < _count; ++index)
+    	{
+    	    std::cout << std::setw(10) << index + 1 << "|";
+    	    print_line(_contact[index].get_first_name());
+    	    std::cout << "|";
+    	    print_line(_contact[index].get_last_name());
+    	    std::cout << "|";
+    	    print_line(_contact[index].get_nickname());
+    	    std::cout << std::endl;
+    	}
+	}
 }
 
 void    PhoneBook::Search_with_index(int index)

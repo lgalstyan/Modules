@@ -1,8 +1,14 @@
 #ifndef PHONBOOK_HPP
 #define PHONBOOK_HPP
+
+#define RED		"\033[31m"
+#define RESET	"\033[0m"
+#define BLUE	"\031[0m"
+
 #include "contact.hpp"
 #include <iostream>
 #include <iomanip>
+#include <cctype>
 
 class PhoneBook
 {
@@ -14,6 +20,7 @@ class PhoneBook
         void    Search();
         void    Exit();
         int     get_current_index();
+        int     get_count();
         Contact get_contact();
         Contact set_contact();
     private:

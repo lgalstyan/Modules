@@ -1,13 +1,39 @@
 #include "phonebook.hpp"
+#include <stdlib.h>
 
-void search_command(PhoneBook pbook)
+void	search_command(PhoneBook pbook)
 {
-    int index;
+    std::string input;
+	int	index;
 
     pbook.Search();
     std::cout << "Enter index for search contact: ";
-    std::cin >> index;
-    pbook.Search_with_index(index);
+    std::cin >> input;
+	if (input[0] > '0' && input[0] <= '9' && !input[1])
+	{
+		index = stod(input);
+   		pbook.Search_with_index(index);
+	}
+	else
+	{
+		std::cout << RED << "Error: index must contain only digits\n"  << RESET;
+	}
+}
+
+int	check_fon(std::string str)
+{
+	unsigned int i;
+
+	i = 0;
+	if (str[i] == '+')
+		++i;
+	while (str[i])
+	{
+		if (!isdigit(str[i]))
+			return (2);
+		++i;
+	}
+	return (0);
 }
 
 void add_command(PhoneBook *pbook)
@@ -26,8 +52,15 @@ void add_command(PhoneBook *pbook)
     std::cin >> input[4];
     if (input[0].empty() || input[1].empty() || input[2].empty() || input[3].empty() || input[4].empty())
         std::cout << "All the fields have been completed!\n";
-    pbook->Add_contact(input);
-    std::cout << "Contact successfully added in phonebook\n";
+	else if (check_fon(input[3]))
+	{
+        std::cout << RED << "Error: phone number must contain only digits\n" << RESET;
+	}
+	else
+	{
+    	pbook->Add_contact(input);
+    	std::cout << "Contact successfully added in phonebook\n";
+	}
 }
 
 int main()
@@ -41,7 +74,7 @@ int main()
         if (input == "ADD")
             add_command(&fbook);
         else if (input == "SEARCH")
-            search_command(fbook);
+			search_command(fbook);
         else if (input == "EXIT")
         {
             return (0);

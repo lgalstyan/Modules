@@ -8,11 +8,13 @@ void	search_command(PhoneBook pbook)
 
     pbook.Search();
     std::cout << "Enter index for search contact: ";
-    std::cin >> input;
+	getline(std::cin, input);
+    if (std::cin.eof())
+		return ;
 	if (input[0] > '0' && input[0] <= '9' && !input[1])
 	{
 		index = stod(input);
-   		pbook.Search_with_index(index);
+		pbook.Search_with_index(index);
 	}
 	else
 	{
@@ -41,15 +43,15 @@ void add_command(PhoneBook *pbook)
     std::string input[5];
 
     std::cout << "Enter fisrt name: ";
-    std::cin >> input[0];
+    getline(std::cin, input[0]);
     std::cout << "Enter last name: ";
-    std::cin >> input[1];
+    getline(std::cin, input[1]);
     std::cout << "Enter nickname: ";
-    std::cin >> input[2];
+    getline(std::cin, input[2]);
     std::cout << "Enter phone number: ";
-    std::cin >> input[3];
+    getline(std::cin, input[3]);
     std::cout << "Enter darkest secret: ";
-    std::cin >> input[4];
+    getline(std::cin, input[4]);
     if (input[0].empty() || input[1].empty() || input[2].empty() || input[3].empty() || input[4].empty())
         std::cout << "All the fields have been completed!\n";
 	else if (check_fon(input[3]))
@@ -70,7 +72,7 @@ int main()
     while (true)
     {
         std::cout << "Enter command: ADD, SEARCH or EXIT\n";
-        std::cin >> input;
+    	getline(std::cin, input);
         if (input == "ADD")
             add_command(&fbook);
         else if (input == "SEARCH")

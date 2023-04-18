@@ -75,7 +75,7 @@ int main()
     	getline(std::cin, input);
         if (input == "ADD")
             add_command(&fbook);
-        else if (input == "SEARCH")
+        else if (input ==  "SEARCH")
 			search_command(fbook);
         else if (input == "EXIT")
         {

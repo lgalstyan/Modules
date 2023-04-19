@@ -29,10 +29,13 @@ int		PhoneBook::get_count()
 	return (_count);
 }
 
-void    PhoneBook::Search()
+bool    PhoneBook::Search()
 {
 	if (_count == 0)
+	{
 		std::cout << "There is no any contact saved.\n" <<std::endl;
+		return (false);
+	}
 	else
 	{
     	for(int index = 0; index < _count; ++index)
@@ -46,6 +49,7 @@ void    PhoneBook::Search()
     	    std::cout << std::endl;
     	}
 	}
+	return (true);
 }
 
 void    PhoneBook::Search_with_index(int index)

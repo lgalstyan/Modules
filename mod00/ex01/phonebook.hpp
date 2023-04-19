@@ -17,7 +17,7 @@ class PhoneBook
         ~PhoneBook();
         void    Add_contact(std::string input[5]);
         void    Search_with_index(int i);
-        void    Search();
+        bool    Search();
         void    Exit();
         int     get_current_index();
         int     get_count();

@@ -6,7 +6,8 @@ void	search_command(PhoneBook pbook)
     std::string input;
 	int	index;
 
-    pbook.Search();
+    if (!pbook.Search())
+		return ;
     std::cout << "Enter index for search contact: ";
 	getline(std::cin, input);
     if (std::cin.eof())

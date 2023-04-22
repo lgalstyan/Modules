@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         std::getline(old_file, rep_string);
     }
 
-    old_file.close();
+    old_file.close(); 
     new_file.close();
     
 }

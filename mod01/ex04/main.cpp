@@ -1,18 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-static std::string replace_string(std::string str, std::string s1, std::string s2)
-{
-    size_t end = s1.length();
-    size_t start = str.find(s1);
-    while (start < str.length() && start != std::string::npos)
-    {
-        str.erase(start, end);
-        str.insert(start, s2);
-        start = str.find(s1, start + end);
-    }
-    return (str);
-}
+static std::string replace_string(std::string str, std::string s1, std::string s2);
 
 int main(int argc, char **argv)
 {
@@ -42,7 +31,7 @@ int main(int argc, char **argv)
     std::getline(old_file, rep_string);
     while (!old_file.eof())
     {
-        replace_string(rep_string, s1, s2);
+        rep_string = replace_string(rep_string, s1, s2);
         new_file << rep_string + '\n';
         std::getline(old_file, rep_string);
     }
@@ -50,4 +39,17 @@ int main(int argc, char **argv)
     old_file.close();
     new_file.close();
     
+}
+
+static std::string replace_string(std::string str, std::string s1, std::string s2)
+{
+    size_t end = s1.length();
+    size_t start = str.find(s1);
+    while (start < str.length() && start != std::string::npos)
+    {
+        str.erase(start, end);
+        str.insert(start, s2);
+        start = str.find(s1, start + end);
+    }
+    return (str);
 }

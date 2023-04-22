@@ -38,7 +38,6 @@ int main(int argc, char **argv)
 
     old_file.close(); 
     new_file.close();
-    
 }
 
 static std::string replace_string(std::string str, std::string s1, std::string s2)

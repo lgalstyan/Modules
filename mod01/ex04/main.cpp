@@ -9,31 +9,10 @@ static std::string replace_string(std::string str, std::string s1, std::string s
     {
         str.erase(start, end);
         str.insert(start, s2);
-        // start += end;
         start = str.find(s1, start + end);
     }
-    // std::cout << "find is "<< start << "\n";
-    // std::cout << "find space "<< end << "\n";
-    // std::cout << "before string is " << str << std::endl;
-    // std::cout << "after string is " << str << std::endl;
     return (str);
-
 }
-
-// static void read_write(std::ifstream old_file, std::ofstream new_file, std::string s1, std::string s2)
-// {
-//     std::string rep_string;
-//     (void)new_file;
-
-//     std::getline(old_file, rep_string);
-//     while (!old_file.eof())
-//     {
-//         replace_string(rep_string, s1, s2);
-
-//         new_file << rep_string;
-//         std::getline(old_file, rep_string);
-//     }
-// }
 
 int main(int argc, char **argv)
 {
@@ -63,12 +42,10 @@ int main(int argc, char **argv)
     std::getline(old_file, rep_string);
     while (!old_file.eof())
     {
-        std::cout << "result: " << replace_string(rep_string, s1, s2) << std::endl;
-
-        new_file << rep_string;
+        replace_string(rep_string, s1, s2);
+        new_file << rep_string + '\n';
         std::getline(old_file, rep_string);
     }
-    // read_write(old_file, new_file, s1, s2);
 
     old_file.close();
     new_file.close();

@@ -1,4 +1,5 @@
 #include "HumanA.hpp"
+#include "Weapon.hpp"
 #include "HumanB.hpp"
 
 int main() {

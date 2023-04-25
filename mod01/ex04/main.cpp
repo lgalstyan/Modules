@@ -31,11 +31,11 @@ int main(int argc, char **argv)
     std::getline(old_file, rep_string);
     while (!old_file.eof())
     {
+        std::cout << rep_string << std::endl;
         rep_string = replace_string(rep_string, s1, s2);
         new_file << rep_string + '\n';
         std::getline(old_file, rep_string);
     }
-
     old_file.close(); 
     new_file.close();
 }

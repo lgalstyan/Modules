@@ -4,6 +4,7 @@
 void	search_command(PhoneBook pbook)
 {
     std::string input;
+    char *current;
 	int	index;
 
     if (!pbook.Search())
@@ -12,16 +13,16 @@ void	search_command(PhoneBook pbook)
 	getline(std::cin, input);
     if (std::cin.eof())
 		return ;
-	if (input[0] > '0' && input[0] <= '9' && !input[1])
-	{
-		index = stod(input);
-		pbook.Search_with_index(index);
-	}
-	else
-	{
+    std::strtol(input.c_str(), &current, 10);
+    if (*current != '\0')
+    {
 		std::cout << RED << "Error: index must contain only digits\n"  << RESET;
-	}
-}
+    }
+	else
+    {
+        index = std::atoi(input.c_str());
+        pbook.Search_with_index(index);
+    }
 
 int	check_fon(std::string str)
 {

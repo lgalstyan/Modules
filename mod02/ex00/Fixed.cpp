@@ -5,10 +5,11 @@ Fixed::Fixed()
     std::cout << "Default constructor called\n";
     _fix_p = 0;
 }
+
 Fixed::Fixed(const Fixed &other)
 {
     std::cout << "Copy constructor called\n";
-    _fix_p  = other.getRawBits();
+    _fix_p  = other.getRawBits(); 
 }
 
 Fixed& Fixed::operator= (const Fixed& rhs)

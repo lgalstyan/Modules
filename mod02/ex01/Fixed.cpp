@@ -11,7 +11,6 @@ Fixed::Fixed()
 Fixed::Fixed(const int nf)
 {
     std::cout << "Int constructor called\n";
-
 }
 
 Fixed::Fixed(const float nf)

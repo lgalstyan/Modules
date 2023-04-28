@@ -1,13 +1,14 @@
 #include "Harl.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-    if (argc != 2)
-    {
-        std::cout << "Enter DEBUG, INFO, WARNING or ERROR\n";
-        return (1);
-    }
     Harl har;
-    har.complain(argv[1]);
+    std::string line;
+    while (true)
+    {
+        std::cout << BLUE << "Enter DEBUG, INFO, WARNING or ERROR commands\n" << RESET;
+        getline(std::cin, line);
+        har.complain(line);
+    }
     return (0);
 }

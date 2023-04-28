@@ -47,7 +47,7 @@ void Harl::complain(std::string level)
         i++;
     if (i > 4)
     {
-        std::cout << RED << "Error: unknown command\n" << RESET;
+        std::cerr << RED << "Error: unknown command\n" << RESET;
         return ;
     }
     (this->*functions[i]) ();

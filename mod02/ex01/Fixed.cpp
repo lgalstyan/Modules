@@ -11,12 +11,13 @@ Fixed::Fixed()
 Fixed::Fixed(const int nf)
 {
     std::cout << "Int constructor called\n";
+    _fix_p = nf; 
 }
 
 Fixed::Fixed(const float nf)
 {
     std::cout << "Float constructor called\n";
-
+    _fix_p = nf * (1 << Fixed::_fract_bits);
 }
 
 Fixed::Fixed(const Fixed &other)
@@ -49,8 +50,18 @@ void Fixed::setRawBits(int const raw)
     _fix_p = raw;
 }
 
+int Fixed::toInt(void) const
+{
+    return 
+}
+
+float   Fixed::toFloat(void) const
+{
+    
+}
+
 std::ostream& operator<<(std::ostream& os, const Fixed& fix)
 {
-    os << "aa";
+    os << ;
     return os;
 }

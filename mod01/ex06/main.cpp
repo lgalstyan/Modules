@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 {
     if (argc != 2)
     {
-        std::cout << "Enter DEBUG, INFO, WARNING or ERROR\n";
+        std::cerr << "Enter DEBUG, INFO, WARNING or ERROR\n";
         return (1);
     }
     Harl har;

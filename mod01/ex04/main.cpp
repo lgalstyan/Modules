@@ -28,12 +28,15 @@ int main(int argc, char **argv)
         std::cout << "Error: con't create " << filename + ".replace" << " file\n";
         return (2);
     }
-    std::getline(old_file, rep_string);
-    while (!old_file.eof())
+    while (std::getline(old_file, rep_string))
     {
         rep_string = replace_string(rep_string, s1, s2);
-        new_file << rep_string + '\n';
-        std::getline(old_file, rep_string);
+        new_file << rep_string;
+        std::cout << rep_string << "\n";
+        if (!old_file.eof())
+            new_file << '\n';
+        else
+            break;
     }
     old_file.close();
     new_file.close();

@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -19,7 +20,7 @@ class Fixed
 
     private:
         int _fix_p;
-	    static const int _fract_bits;
+	    static const int _fract_bits = 8;
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fix);

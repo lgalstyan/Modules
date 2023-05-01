@@ -2,21 +2,9 @@
 
 Replace::Replace(std::string fn, std::string s1, std::string s2)
 {
-    _old_file.open(fn, std::ios::out);
-    if (!_old_file)
-    {
-        std::cout << "Error: " << fn << "file not found\n";
-    }
-    else
-    {
-        _s1 = s1;
-        _s2 = s2;
-    }
-    _new_file.open(fn + ".replace", std::ios::in);
-    if (!_new_file)
-    {
-        std::cout << "Error: con't create " << fn + ".replace" << " file\n";
-    }
+    _s1 = s1;
+    _s2 = s2;
+    _filename = fn;
 }
 
 std::string Replace::replace_string(std::string str, std::string s1, std::string s2)
@@ -35,14 +23,22 @@ std::string Replace::replace_string(std::string str, std::string s1, std::string
 void Replace::replace_file()
 {
     std::string rep_string;
-
-    while (std::getline(_old_file, rep_string))
+    std::ifstream old_file(_filename);
+    if (!old_file)
+    {
+        std::cout << "Error: " << _filename << "file not found\n";
+    }
+    std::ofstream new_file(_filename + ".replace");
+    if (!new_file)
+    {
+        std::cout << "Error: con't create " << _filename + ".replace" << " file\n";
+    }
+    while (std::getline(old_file, rep_string))
     {
         rep_string = replace_string(rep_string, _s1, _s2);
-        _new_file << rep_string;
-        std::cout << rep_string << "\n";
-        if (!_old_file.eof())
-            _new_file << '\n';
+        new_file << rep_string;
+        if (!old_file.eof())
+            new_file << '\n';
         else
             break;
     }
@@ -50,6 +46,6 @@ void Replace::replace_file()
 
 Replace::~Replace()
 {
-    _old_file.close();
-    _new_file.close();
+    // _old_file.close();
+    // new_file.close();
 }

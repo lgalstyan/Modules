@@ -7,7 +7,8 @@ int main(int argc, char **argv)
         std::cout << "Error: must be 3 parameters\n";
         return (1);
     }
-    Replace(argv[1], argv[2], argv[3]);
+    Replace rep(argv[1], argv[2], argv[3]);
+    rep.replace_file();
 }
 //     std::string filename = argv[1];
 //     std::string s1 = argv[2];

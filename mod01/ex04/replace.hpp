@@ -12,8 +12,7 @@ class Replace
     private:
         std::string _s1;
         std::string _s2;
-        std::ifstream _old_file;
-        std::ofstream _new_file;
+        std::string _filename;
         
         std::string replace_string(std::string str, std::string s1, std::string s2);
 };

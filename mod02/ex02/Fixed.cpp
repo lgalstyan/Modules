@@ -2,39 +2,31 @@
 
 Fixed::Fixed()
 {
-    std::cout << "Default constructor called\n";
     _fix_p = 0;
 }
 
 Fixed::Fixed(const int nf)
 {
-    std::cout << "Int constructor called\n";
     _fix_p = nf << _fract_bits; 
 }
 
 Fixed::Fixed(const float nf)
 {
-    std::cout << "Float constructor called\n";
     _fix_p = roundf(nf * (1 << Fixed::_fract_bits));
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-    std::cout << "Copy constructor called\n";
     *this = other;
 }
 
 Fixed& Fixed::operator= (const Fixed& rhs)
 {
-    std::cout << "Copy assignment operator called\n";
     _fix_p  = rhs.getRawBits();
     return (*this);
 }
 
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called\n";
-}
+Fixed::~Fixed(){}
 
 int Fixed::getRawBits(void) const
 {
@@ -62,4 +54,117 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fix)
 {
     os << fix.toFloat();
     return os;
+}
+
+bool Fixed::operator< (const Fixed &f) const
+{
+    if (this->getRawBits() < f.getRawBits())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator<= (const Fixed &f) const 
+{   
+    if (this->getRawBits() <= f.getRawBits())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator> (const Fixed &f) const
+{   
+    if (this->getRawBits() > f.getRawBits())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator>= (const Fixed &f) const
+{   
+    if (this->getRawBits() >= f.getRawBits())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator== (const Fixed &f) const
+{   
+    if (this->getRawBits() == f.getRawBits())
+        return (true);
+    return (false);
+}
+
+bool Fixed::operator!= (const Fixed &f) const
+{   
+    if (this->getRawBits() != f.getRawBits())
+        return (true);
+    return (false);
+}
+
+Fixed Fixed::operator+ (const Fixed &f) const
+{
+    Fixed tmp;
+    tmp = this->toFloat() + f.toFloat();
+    return tmp;
+}
+
+Fixed Fixed::operator- (const Fixed &f) const
+{
+    Fixed tmp;
+    tmp = this->toFloat() - f.toFloat();
+    return tmp;
+}
+
+Fixed Fixed::operator* (const Fixed &f) const
+{
+    Fixed tmp;
+    tmp = this->toFloat() * f.toFloat();
+    return tmp;
+}
+
+Fixed Fixed::operator/ (const Fixed &f) const
+{
+    Fixed tmp;
+    tmp = this->toFloat() / f.toFloat();
+    return tmp;
+}
+
+// prefix increment
+Fixed& Fixed::operator++()
+{
+    ++this->_fix_p;
+    return *this;
+}
+
+// postfix increment
+Fixed Fixed::operator++(int)
+{
+    Fixed old = *this;
+    operator++();  
+    return old;    
+}
+
+Fixed&  Fixed::min(Fixed &f1, Fixed &f2)
+{
+    if (f1 < f2)
+        return (f1);
+    return (f2);
+}
+
+Fixed&  Fixed::max(Fixed &f1, Fixed &f2)
+{
+    if (f1 > f2)
+        return (f1);
+    return (f2);
+}
+
+const Fixed&  Fixed::min(const Fixed &f1, const Fixed &f2)
+{
+    if (f1.operator<(f2))
+        return (f1);
+    return (f2);
+}
+
+const Fixed&  Fixed::max(const Fixed &f1, const Fixed &f2)
+{
+    if (f1 > f2)
+        return (f1);
+    return (f2);
 }

@@ -14,7 +14,7 @@ static void barycentric(Point p1, Point p2, Point p3, Point p, Fixed& a, Fixed& 
 
 bool bsp( Point p1, Point p2, Point p3, Point point)
 {
-    Fixed a, b, c, nal(static_cast<float>(0.0));
+    Fixed a, b, c, nal(0.0f);
     barycentric(p1, p2, p3, point, a, b, c);
 
     if (a > nal && b > nal && c > nal)

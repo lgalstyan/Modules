@@ -22,7 +22,8 @@ Fixed::Fixed(const Fixed &other)
 
 Fixed& Fixed::operator= (const Fixed& rhs)
 {
-    _fix_p  = rhs.getRawBits();
+    if (this != &rhs)
+        _fix_p  = rhs.getRawBits();
     return (*this);
 }
 

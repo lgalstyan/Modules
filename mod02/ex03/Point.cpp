@@ -12,6 +12,12 @@ Point::Point(const Fixed a, const Fixed b)
     const_cast<Fixed &>(_y) = b;
 }
 
+Point::Point(const Fixed a)
+{
+    const_cast<Fixed &>(_x) = a;
+    const_cast<Fixed &>(_y) = 0;
+}
+
 Point::Point(const Point &other)
 {
     const_cast<Fixed &>(_x) = other._x;
@@ -23,15 +29,11 @@ Point& Point::operator = (const Point& rhs)
     {
         const_cast<Fixed &>(_x).setRawBits(rhs._x.getRawBits());
         const_cast<Fixed &>(_y).setRawBits(rhs._y.getRawBits());
-        // _y = rhs._y;
     }
     return (*this);
 }
 
-Point::~Point()
-{
-
-}
+Point::~Point() {}
 
 const Fixed Point::getX()
 {

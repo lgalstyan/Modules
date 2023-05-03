@@ -11,6 +11,7 @@ class Point
     public:
         Point();
         Point(const Fixed a, const Fixed b);
+        Point(const Fixed a);
         Point(const Point &other);
         Point& operator = (const Point& rhs); //right hand side
         ~Point();

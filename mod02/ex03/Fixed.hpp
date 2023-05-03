@@ -1,51 +1,47 @@
 #ifndef FIXED_HPP
-# define FIXED_HPP
+#define FIXED_HPP
 
-# include <iostream>
-# include <string>
-# include <cmath>
+#include <iostream>
+#include <cmath>
 
 class Fixed
 {
-	private:
-		int					fixedPointValue; 	
-		static const int	numOfFractionalBits = 8;
+    public:
+        Fixed();
+        Fixed(const int nf);
+        Fixed(const float nf);
+        Fixed(const Fixed &other);
+        Fixed& operator = (const Fixed& rhs); //right hand side
+        ~Fixed();
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
+        int toInt( void ) const;
+        float toFloat( void ) const;
+        bool operator < (const Fixed &f) const;
+        bool operator > (const Fixed &f) const;
+        bool operator <= (const Fixed &f) const;
+        bool operator >= (const Fixed &f) const;
+        bool operator == (const Fixed &f) const;
+        bool operator != (const Fixed &f) const;
 
-	public:
-		Fixed(void);		
-		Fixed(const Fixed &f);
-		Fixed &operator=(const Fixed &f);
-		~Fixed(void);	
+        Fixed operator+ (const Fixed &f) const;
+        Fixed operator- (const Fixed &f) const;
+        Fixed operator* (const Fixed &f) const;
+        Fixed operator/ (const Fixed &f) const;
 
-		Fixed(const int nb);					
-		Fixed(const float nb);
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-		int		toInt(void) const;
-		float	toFloat(void) const;
-		bool	operator>=(const Fixed &copy) const;
-		bool	operator<=(const Fixed &copy) const;
-		bool	operator==(const Fixed &copy) const;
-		bool	operator!=(const Fixed &copy) const;
-		bool	operator>(const Fixed &copy) const;
-		bool	operator<(const Fixed &copy) const;
+        Fixed& operator++();
+        Fixed operator++(int);
 
-		Fixed	&operator++(void);
-    	Fixed	operator++(int);
-    	Fixed	&operator--(void);
-    	Fixed	operator--(int);
-		Fixed	operator+(const Fixed &copy) const;
-		Fixed	operator-(const Fixed &copy) const;
-		Fixed	operator*(const Fixed &copy) const;
-		Fixed	operator/(const Fixed &copy) const;
+        static Fixed& min(Fixed &f1, Fixed &f2);
+        static Fixed& max(Fixed &f1, Fixed &f2);
+        static const Fixed& min(const Fixed &f1, const Fixed &f2);
+        static const Fixed& max(const Fixed &f1, const Fixed &f2);
 
-
-    	static Fixed		&min(Fixed &a, Fixed &b);
-    	static const Fixed	&min(const Fixed &a, const Fixed &b);
-    	static Fixed		&max(Fixed &a, Fixed &b);
-    	static const Fixed	&max(const Fixed &a, const Fixed &b);
+    private:
+        int _fix_p;
+	    static const int _fract_bits = 8;
 };
 
-std::ostream &operator<<(std::ostream &o, const Fixed &i);
+std::ostream& operator<<(std::ostream& os, const Fixed& fix);
 
 #endif

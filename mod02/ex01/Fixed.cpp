@@ -48,13 +48,13 @@ void Fixed::setRawBits(int const raw)
 
 int Fixed::toInt(void) const
 {
-    int res = static_cast<float>(_fix_p) / (1 << _fract_bits);
+    int res = _fix_p >> _fract_bits;
     return (res);
 }
 
-float   Fixed::toFloat(void) const
+float Fixed::toFloat(void) const
 {
-    float res = _fix_p >> _fract_bits;
+    float res = static_cast<float>(_fix_p) / (1 << _fract_bits);
     return (res);
 }
 

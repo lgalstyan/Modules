@@ -6,8 +6,8 @@ ClapTrap::ClapTrap(std::string name)
     _hit = 10;
     _energy = 10;
     _damage = 0;
-    std::cout   << "Hi. I am ClapTrap and my name is "<< _name
-                << "\nI can atteck, to take demage and be repaired\n";
+    std::cout   << "Hi. I am " << _name
+                << " ClapTrap.\nI can atteck, to take demage and be repaired.\n";
 }
 
 ClapTrap::~ClapTrap()
@@ -35,6 +35,10 @@ ClapTrap& ClapTrap::operator= (const ClapTrap& rhs)
 
 void ClapTrap::attack(const std::string& target)
 {
+    if (_hit < 1)
+    {
+        std::cout << "ClapTrap " << _name << " hasn't hit point\n";
+    }
     std::cout   << "ClapTrap " << _name << " attacks " << target
                 << ", causing "<<_damage << " points of damage!\n";
     if (_hit >= 0)
@@ -45,7 +49,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if (_hit < amount)
     {
-        std::cout << "No enough " << amount << " hit points to do demage\n";
+        std::cout << "No enough hit points to do demage\n";
     }
     std::cout   << "ClapTrap named " << _name
                 << " took a " << amount << " damage \n";

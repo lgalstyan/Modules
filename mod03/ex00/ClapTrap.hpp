@@ -1,6 +1,9 @@
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
+#define RED		"\033[31m"
+#define RESET	"\033[0m"
+
 #include <iostream>
 
 class ClapTrap
@@ -13,16 +16,16 @@ class ClapTrap
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        std::string getName();
-        unsigned int getHit();
-        unsigned int getEnergy();
-        unsigned int getDemage();
+        std::string getName() const;
+        unsigned int getHit() const;
+        unsigned int getEnergy() const;
+        unsigned int getDamage() const;
 
     private:
         std::string _name;
         unsigned int _hit;
         unsigned int _energy;
-        unsigned int _demage;
+        unsigned int _damage;
 };
 
 #endif

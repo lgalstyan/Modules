@@ -1,17 +1,18 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::name)
+ClapTrap::ClapTrap(std::string name)
 {
     _name = name;
     _hit = 10;
     _energy = 10;
-    _demage = 0;
-    std::cout << "ClapTrap created...\n";
+    _damage = 0;
+    std::cout   << "Hi. I am ClapTrap and my name is "<< _name
+                << "\nI can atteck, to take demage and be repaired\n";
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap deleted...\n";
+    std::cout << RED << "A ClapTrap named "<< _name << " killed\n" << RESET;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -19,7 +20,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
     *this = other;
 }
 
-ClapTrap& operator= (const ClapTrap& rhs)
+ClapTrap& ClapTrap::operator= (const ClapTrap& rhs)
 {
     std::cout << "Copy assignment operator called\n";
     if (this != &rhs)
@@ -27,7 +28,7 @@ ClapTrap& operator= (const ClapTrap& rhs)
         _name = rhs.getName();
         _hit = rhs.getHit();
         _energy = rhs.getEnergy();
-        _demage = rhs.getDemage();
+        _damage = rhs.getDamage();
     }
     return (*this);
 }
@@ -35,41 +36,53 @@ ClapTrap& operator= (const ClapTrap& rhs)
 void ClapTrap::attack(const std::string& target)
 {
     std::cout   << "ClapTrap " << _name << " attacks " << target
-                << ", causing "<<_demage << " points of damage!\n";
+                << ", causing "<<_damage << " points of damage!\n";
     if (_hit >= 0)
         --_hit;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    // std::cout   << "ClapTrap " << _name << " take damage " << target
-    //             << ", causing "<<_demage << " points of damage!\n";
+    if (_hit < amount)
+    {
+        std::cout << "No enough " << amount << " hit points to do demage\n";
+    }
+    std::cout   << "ClapTrap named " << _name
+                << " took a " << amount << " damage \n";
     _hit -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (amount < 1)
+    if (_energy < 1)
+    {
+        std::cout   << "The ClapTrap named " << _name
+                    << "has no energy\n";
         return ;
-    _energy += amount;
+    }
+    _hit += amount;
+    _energy--;
+    std::cout   << "The ClapTrap named " << _name
+                << "was repaired and increased "
+                << amount << " of hits\n";
 }
 
-std::string ClapTrap::getName()
+std::string ClapTrap::getName() const
 {
     return (_name);
 }
 
-unsigned int ClapTrap::getHit()
+unsigned int ClapTrap::getHit() const
 {
     return (_hit);
 }
 
-unsigned int ClapTrap::getEnergy()
+unsigned int ClapTrap::getEnergy() const
 {
-
+    return (_energy);
 }
 
-unsigned int ClapTrap::getDemage()
+unsigned int ClapTrap::getDamage() const
 {
-
+    return (_damage);
 }

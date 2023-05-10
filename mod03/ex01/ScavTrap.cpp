@@ -1,12 +1,20 @@
 #include "ScavTrap.hpp"
 
-// ScavTrap::ScavTrap(){}
+ScavTrap::ScavTrap()
+{
+    _name = "Anonymous";
+    _hit = 100;
+    _energy = 50;
+    _damage = 20;
+    std::cout   << "Hi. I am " << _name
+                << " ScavTrap.\nI can atteck, to take demage and be repaired.\n";
+}
 
 ScavTrap::ScavTrap(std::string name)
 {
     _name = name;
     _hit = 100;
-    _energy =50;
+    _energy = 50;
     _damage = 20;
     std::cout   << "Hi. I am " << _name
                 << " ScavTrap.\nI can atteck, to take demage and be repaired.\n";
@@ -14,7 +22,7 @@ ScavTrap::ScavTrap(std::string name)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << BLUE << "A ClapTrap named "<< _name << " killed\n" << RESET;
+    std::cout << RED << "A ScavTrap named "<< _name << " killed\n" << RESET;
 }
 
 void ScavTrap::attack(const std::string& target)

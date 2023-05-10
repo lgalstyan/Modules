@@ -1,11 +1,17 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap()
 {
-    _name = name;
+    _name = "Anonymous";
     _hit = 10;
     _energy = 10;
     _damage = 0;
+    std::cout   << "Hi. I am " << _name
+                << " ClapTrap.\nI can atteck, to take demage and be repaired.\n";
+}
+
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit(10), _energy(10), _damage(0)
+{
     std::cout   << "Hi. I am " << _name
                 << " ClapTrap.\nI can atteck, to take demage and be repaired.\n";
 }
@@ -35,14 +41,14 @@ ClapTrap& ClapTrap::operator= (const ClapTrap& rhs)
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (_hit < 1)
+    if (_energy < 1)
     {
-        std::cout << "ClapTrap " << _name << " hasn't hit point\n";
+        std::cout << "ClapTrap " << _name << " has no energy points for attack\n";
     }
     std::cout   << "ClapTrap " << _name << " attacks " << target
                 << ", causing "<<_damage << " points of damage!\n";
-    if (_hit >= 0)
-        --_hit;
+    if (_energy > 0)
+        --_energy;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -52,7 +58,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         std::cout << "No enough hit points to do demage\n";
     }
     std::cout   << "ClapTrap named " << _name
-                << " took a " << amount << " damage \n";
+                << " takes " << amount << " damage\n";
     _hit -= amount;
 }
 
@@ -61,14 +67,14 @@ void ClapTrap::beRepaired(unsigned int amount)
     if (_energy < 1)
     {
         std::cout   << "The ClapTrap named " << _name
-                    << "has no energy\n";
+                    << "has no energy points\n";
         return ;
     }
     _hit += amount;
     _energy--;
     std::cout   << "The ClapTrap named " << _name
-                << "was repaired and increased "
-                << amount << " of hits\n";
+                << "is repaired for "
+                << amount << " hit points\n";
 }
 
 std::string ClapTrap::getName() const

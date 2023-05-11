@@ -1,11 +1,11 @@
-NAME    = ClapTrap
+NAME    = ScavTrap
 SRCS    = $(shell find . -name "*.cpp")
 OBJS 	= ${SRCS:.cpp=.o}
 FLAGS   = -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 CC      = c++
 
-%.o: %.cpp
+%.o: %.cpp %.hpp
 	@$(CC) ${FLAGS} -I. -c $< -o $@
 
 all:	${NAME}

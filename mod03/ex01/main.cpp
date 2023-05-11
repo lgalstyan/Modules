@@ -3,10 +3,12 @@
 
 int main()
 {
-    ClapTrap Player1("Panda");
-    ScavTrap Player2;
-    Player1.attack("Aghves");
-    Player1.takeDamage(33);
-    Player2.takeDamage(2);
+   ScavTrap steve("Steve");
+
+    // Call member functions to test
+    steve.attack("enemy");
+    steve.takeDamage(20);
+    steve.beRepaired(10);
+    steve.guardGate();
     return (0);
 }

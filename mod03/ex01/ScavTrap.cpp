@@ -6,8 +6,8 @@ ScavTrap::ScavTrap() : ClapTrap()
     _hit = 100;
     _energy = 50;
     _damage = 20;
-    std::cout   << "Hi. I am " << _name
-                << " ScavTrap.\nI can attack, to take demage and be repaired.\n";
+    std::cout   << BLUE << "Hi. I am " << _name
+                << " ScavTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -16,8 +16,25 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     _hit = 100;
     _energy = 50;
     _damage = 20;
-    std::cout   << "Hi. I am " << _name
-                << " ScavTrap.\nI can attack, to take demage and be repaired.\n";
+    std::cout   << BLUE << "Hi. I am " << _name
+                << " ScavTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &other)
+{
+    *this = other;
+}
+
+ScavTrap& ScavTrap::operator= (const ScavTrap& rhs)
+{
+    if (this != &rhs)
+    {
+        _name = rhs._name;
+        _hit = rhs._hit;
+        _damage = rhs._damage;
+        _energy = rhs._energy;
+    }
+    return (*this);
 }
 
 ScavTrap::~ScavTrap()

@@ -20,6 +20,23 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
                 << " FragTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
 }
 
+FragTrap::FragTrap(const FragTrap &other)
+{
+    *this = other;
+}
+
+FragTrap& FragTrap::operator= (const FragTrap& rhs)
+{
+    if (this != &rhs)
+    {
+        _name = rhs._name;
+        _hit = rhs._hit;
+        _damage = rhs._damage;
+        _energy = rhs._energy;
+    }
+    return (*this);
+}
+
 FragTrap::~FragTrap()
 {
     std::cout << RED << "A FragTrap named "<< _name << " killed\n" << RESET;

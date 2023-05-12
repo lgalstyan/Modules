@@ -6,14 +6,14 @@ ClapTrap::ClapTrap()
     _hit = 10;
     _energy = 10;
     _damage = 0;
-    std::cout   << "Hi. I am " << _name
-                << " ClapTrap.\nI can attack, to take demage and be repaired.\n";
+    std::cout   << BLUE << "Hi. I am " << _name
+                << " ClapTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hit(10), _energy(10), _damage(0)
 {
-    std::cout   << "Hi. I am " << _name
-                << " ClapTrap.\nI can attack, to take demage and be repaired.\n";
+    std::cout   << BLUE << "Hi. I am " << _name
+                << " ClapTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
 }
 
 ClapTrap::~ClapTrap()

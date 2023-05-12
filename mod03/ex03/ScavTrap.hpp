@@ -2,13 +2,14 @@
 #define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
-#define BLUE	"\031[31m"
 
 class ScavTrap : public ClapTrap
 {
     public:
         ScavTrap();
         ScavTrap(std::string name);
+        ScavTrap(const ScavTrap &other);
+        ScavTrap& operator= (const ScavTrap& rhs);
         ~ScavTrap();
         void    attack(const std::string& target);
         void    guardGate() const;

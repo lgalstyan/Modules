@@ -7,11 +7,8 @@ int main()
     zombie->announce();
     
     Zombie zomb1("Zomb1");
-    // Zombie zomb2("Zomb2");
-    // Zombie zomb3("Zomb3");
     zomb1.announce();
-    // zomb2.announce();
-    // zomb3.announce();
+
     randomChump("rand_zombie");
     delete zombie;
 

@@ -9,10 +9,10 @@ Harl::~Harl(){}
 void Harl::complain(std::string level)
 {
     int i;
-    std::string arr_function[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
+    // void (Harl::*functions[4]) () = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     i = 0;
-    while (level !=  arr_function[i])
+    while (i <= 4 && level !=  levels[i])
         i++;
     switch (i)
     {

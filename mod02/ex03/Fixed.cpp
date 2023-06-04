@@ -15,16 +15,16 @@ Fixed::Fixed(const float nf)
     _fix_p = roundf(nf * (1 << Fixed::_fract_bits));
 }
 
-Fixed::Fixed(const Fixed &other)
-{
-    *this = other;
-}
-
 Fixed& Fixed::operator= (const Fixed& rhs)
 {
     if (this != &rhs)
         _fix_p  = rhs.getRawBits();
     return (*this);
+}
+
+Fixed::Fixed(const Fixed &other)
+{
+    *this = other;
 }
 
 Fixed::~Fixed(){}
@@ -139,6 +139,21 @@ Fixed Fixed::operator++(int)
 {
     Fixed old = *this;
     operator++();  
+    return old;    
+}
+
+// prefix decrement
+Fixed& Fixed::operator--()
+{
+    --this->_fix_p;
+    return *this;
+}
+
+// postfix decrement
+Fixed Fixed::operator--(int)
+{
+    Fixed old = *this;
+    operator--();  
     return old;    
 }
 

@@ -19,6 +19,6 @@ class Point
         const Fixed getY();
 };
 
-bool bsp( Point a, Point b, Point c, Point point);
+bool bsp( Point p1, Point p2, Point p3, Point point);
 
 #endif

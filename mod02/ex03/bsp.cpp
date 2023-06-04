@@ -1,23 +1,26 @@
 #include "Point.hpp"
 
-static void barycentric(Point p1, Point p2, Point p3, Point p, Fixed& a, Fixed& b, Fixed& c)
+static Fixed area(Point p1, Point p2, Point p3)
 {
-    Fixed one(static_cast<float>(1.0));
-    Fixed denom = (p2.getY() - p3.getY()) * (p1.getX() - p2.getX())
-                + (p3.getX() - p2.getX()) * (p1.getY() - p3.getY());
-    a = ((p2.getY() - p3.getY()) * (p.getX() - p3.getX())
-        + (p3.getX() - p2.getX()) * (p.getY() - p3.getY())) / denom;
-    b = ((p3.getY() - p1.getY()) * (p.getX() - p3.getX())
-        + (p1.getX() - p3.getX()) * (p.getY() - p3.getY())) / denom;
-    c = one - a - b;
+    Fixed res;
+    res = ((p1.getX()*(p2.getY() - p3.getY())) +
+            p2.getX()*(p3.getY() - p1.getY()) +
+            p3.getX()*(p1.getY() - p2.getY()))
+            * 5;
+    if (res < 0)
+        res  = res * (-1);
+    return (res);
 }
 
 bool bsp( Point p1, Point p2, Point p3, Point point)
 {
-    Fixed a, b, c, nal(0.0f);
-    barycentric(p1, p2, p3, point, a, b, c);
-
-    if (a > nal && b > nal && c > nal)
+    Fixed a, b, c, find;
+    find = area(p1, p2, p3);
+    a = area(point, p2, p3);
+    b = area(p1, point, p3);
+    c = area(p1, p2, point);
+    
+    if (find == a + b + c && a != 0 && b != 0 && c != 0 )
         return (true);
     return (false);
 }

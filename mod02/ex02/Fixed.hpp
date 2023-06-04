@@ -1,4 +1,4 @@
-#ifndef FIXED_HPP
+    #ifndef FIXED_HPP
 #define FIXED_HPP
 
 #include <iostream>
@@ -31,6 +31,8 @@ class Fixed
 
         Fixed& operator++();
         Fixed operator++(int);
+        Fixed& operator--();
+        Fixed operator--(int);
 
         static Fixed& min(Fixed &f1, Fixed &f2);
         static Fixed& max(Fixed &f1, Fixed &f2);

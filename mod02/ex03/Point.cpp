@@ -25,6 +25,7 @@ Point::Point(const Point &other)
 }
 Point& Point::operator = (const Point& rhs)
 {
+    std::cout << "Copy assignment operator called\n";
     if (this != &rhs)
     {
         const_cast<Fixed &>(_x).setRawBits(rhs._x.getRawBits());

@@ -9,7 +9,7 @@ Fixed::Fixed()
 Fixed::Fixed(const int nf)
 {
     std::cout << "Int constructor called\n";
-    _fix_p = nf << _fract_bits; 
+    _fix_p = nf << _fract_bits;
 }
 
 Fixed::Fixed(const float nf)
@@ -18,18 +18,18 @@ Fixed::Fixed(const float nf)
     _fix_p = roundf(nf * (1 << Fixed::_fract_bits));
 }
 
-Fixed::Fixed(const Fixed &other)
-{
-    std::cout << "Copy constructor called\n";
-    *this = other;
-}
-
 Fixed& Fixed::operator= (const Fixed& rhs)
 {
     std::cout << "Copy assignment operator called\n";
     if (this != &rhs)
         _fix_p  = rhs.getRawBits();
     return (*this);
+}
+
+Fixed::Fixed(const Fixed &other)
+{
+    std::cout << "Copy constructor called\n";
+    *this = other;
 }
 
 Fixed::~Fixed()

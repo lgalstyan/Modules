@@ -6,18 +6,18 @@ Fixed::Fixed()
     _fix_p = 0;
 }
 
-Fixed::Fixed(const Fixed &other)
-{
-    std::cout << "Copy constructor called\n";
-    *this = other;
-}
-
 Fixed& Fixed::operator= (const Fixed& rhs)
 {
     std::cout << "Copy assignment operator called\n";
     if (this != &rhs)
         _fix_p  = rhs.getRawBits();
     return (*this);
+}
+
+Fixed::Fixed(const Fixed &other)
+{
+    std::cout << "Copy constructor called\n";
+    *this = other;
 }
 
 Fixed::~Fixed()

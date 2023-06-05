@@ -4,7 +4,7 @@
 WrongAnimal::WrongAnimal()
 {
     _type = "WrongAnimal";
-    std::cout << "Called WrongAnimal's constructor\n";
+    std::cout << "Called WrongAnimal's default constructor\n";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other)

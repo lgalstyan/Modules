@@ -1,4 +1,4 @@
-NAME    = Brain
+NAME    = Abstract
 SRCS    = $(shell find . -name "*.cpp")
 OBJS 	= ${SRCS:.cpp=.o}
 FLAGS   = -Wall -Wextra -Werror -std=c++98

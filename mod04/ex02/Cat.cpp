@@ -3,7 +3,15 @@
 Cat::Cat()
 {
     _type = "Cat";
+    _brain = new Brain();
     std::cout << "Called Cat's default constructor\n";
+}
+
+Cat::Cat(std::string typ)
+{
+    _brain = new Brain();
+    _type = typ;
+    std::cout << "Called Cat's constructor with parametrs\n";
 }
 
 std::string Cat::getType() const
@@ -29,6 +37,7 @@ Cat& Cat::operator= (const Cat& rhs)
 
 Cat::~Cat()
 {
+    delete _brain;
     std::cout << "Called Cat's destructor\n";
 }
 

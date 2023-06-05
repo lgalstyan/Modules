@@ -6,11 +6,6 @@ Dog::Dog()
     std::cout << "Called Dog's default constructor\n";
 }
 
-Dog::Dog(std::string typ)
-{
-    std::cout << "Called Dog's constructor with parametrs\n";
-    _type = typ;
-}
 
 Dog::Dog(const Dog &other)
 {

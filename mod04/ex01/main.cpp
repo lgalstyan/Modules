@@ -1,9 +1,7 @@
 #include <iostream>
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {
@@ -11,8 +9,9 @@ int main()
     const Animal* i = new Cat();
     delete j;
     delete i;
-    const int count = 6;
 
+    const int count = 4;
+    
     Animal* animal[count];
     for (int i = 0; i < count; ++i)
     {
@@ -26,6 +25,6 @@ int main()
     {
         delete animal[i];
     }
-    // system("leaks Polymorphism");
+    system("leaks Polymorphism");
     return (0);
 }

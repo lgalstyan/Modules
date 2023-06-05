@@ -7,13 +7,6 @@ Cat::Cat()
     std::cout << "Called Cat's default constructor\n";
 }
 
-Cat::Cat(std::string typ)
-{
-    _brain = new Brain();
-    _type = typ;
-    std::cout << "Called Cat's constructor with parametrs\n";
-}
-
 std::string Cat::getType() const
 {
     return (_type);

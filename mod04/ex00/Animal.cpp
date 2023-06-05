@@ -3,6 +3,7 @@
 
 Animal::Animal()
 {
+    _type = "Animal";
     std::cout << "Called Animal's constructor\n";
 }
 
@@ -27,12 +28,17 @@ Animal::~Animal()
     std::cout << "Called Animal's destructor\n";
 }
 
-std::string Animal::GetType()
+std::string Animal::getType() const
 {
     return (_type);
 }
 
-void Animal::SetType(std::string str)
+void Animal::setType(std::string str)
 {
     _type = str;
+}
+
+void Animal::makeSound() const
+{
+    std::cout << "Animal makes sound!!!\n";
 }

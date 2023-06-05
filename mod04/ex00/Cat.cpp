@@ -2,6 +2,7 @@
 
 Cat::Cat()
 {
+    _type = "Cat";
     std::cout << "Called Cat's default constructor\n";
 }
 
@@ -9,6 +10,11 @@ Cat::Cat(std::string typ)
 {
     std::cout << "Called Cat's constructor with parametrs\n";
     _type = typ;
+}
+
+std::string Cat::getType() const
+{
+    return (_type);
 }
 
 Cat::Cat(const Cat &other)
@@ -30,4 +36,9 @@ Cat& Cat::operator= (const Cat& rhs)
 Cat::~Cat()
 {
     std::cout << "Called Cat's destructor\n";
+}
+
+void Cat::makeSound() const
+{
+    std::cout << "Meooow!!\n";
 }

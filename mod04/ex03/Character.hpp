@@ -17,6 +17,7 @@ class Character : public Character
     private:
         std::string _name;
         AMateria *array[4];
+        AMateria *array_on_floor[4];
 };
 
 #endif

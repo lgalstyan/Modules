@@ -36,6 +36,8 @@ void Character::unequip(int idx)
         std::cout << "[Error] No materia are stored in that index\n";
         return ;
     }
+    array_on_floor[idx] = array[idx];
+    array[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)

@@ -2,7 +2,6 @@
 
 int main()
 {
-    // std::cout << "OK";
     DiamondTrap frank("Frank");
 
     // Call member functions to test

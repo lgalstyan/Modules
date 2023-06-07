@@ -2,12 +2,12 @@
 
 int main()
 {
-    ClapTrap Player1("Panda");
-    ClapTrap Player2("Vozni");
-    ClapTrap Player3("Aghves");
-    Player1.attack("Aghves");
-    Player1.attack("Vozni");
-    Player1.attack("Aghves");
+    ClapTrap Player1("First");
+    ClapTrap Player2("Second");
+    Player1.takeDamage(41);
+    Player1.attack("target1");
+    Player1.attack("targe2");
+    Player1.beRepaired(45);
     Player1.takeDamage(33);
     return (0);
 }

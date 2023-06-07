@@ -24,6 +24,7 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
     *this = other;
+    std::cout << "Called copy constructor\n";
 }
 
 ClapTrap& ClapTrap::operator= (const ClapTrap& rhs)
@@ -31,10 +32,10 @@ ClapTrap& ClapTrap::operator= (const ClapTrap& rhs)
     std::cout << "Copy assignment operator called\n";
     if (this != &rhs)
     {
-        _name = rhs.getName();
-        _hit = rhs.getHit();
-        _energy = rhs.getEnergy();
-        _damage = rhs.getDamage();
+        _name = rhs._name;
+        _hit = rhs._hit;
+        _energy = rhs._energy;
+        _damage = rhs._damage;
     }
     return (*this);
 }

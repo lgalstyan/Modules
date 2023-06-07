@@ -3,7 +3,7 @@
 
 int main()
 {
-   ScavTrap steve("Steve");
+    ScavTrap steve("Steve");
 
     // Call member functions to test
     steve.attack("enemy");

@@ -13,6 +13,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 ScavTrap::ScavTrap(const ScavTrap &other)
 {
     *this = other;
+    std::cout << "Called copy constructor\n";
 }
 
 ScavTrap& ScavTrap::operator= (const ScavTrap& rhs)

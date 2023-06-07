@@ -1,13 +1,13 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const & type)
+AMateria::AMateria(const std::string &type)
 {
     _type = type;
 }
 
 AMateria::~AMateria(){}
 
-std::string const & AMateria::getType() const
+const std::string& AMateria::getType() const
 {
     return (_type);
 }

@@ -1,15 +1,16 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
+#include <iostream>
 #include "ICharacter.hpp"
 
-class AMateria 
+class AMateria
 {
     public: 
-    AMateria(std::string const & type);
+    AMateria(const std::string & type);
     virtual ~AMateria();
 
-    std::string const & getType() const; //Returns the materia type
+    const std::string & getType() const; //Returns the materia type
     virtual AMateria* clone() const = 0;
     virtual void use(ICharacter&) const = 0;
 

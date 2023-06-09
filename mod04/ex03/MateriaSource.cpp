@@ -10,16 +10,10 @@ MateriaSource::MateriaSource()
 
 MateriaSource::~MateriaSource()
 {
-    // for(int i = 0; i < 4; ++i)
-    // {
-    //     delete array[i];
-    //     array[i] = NULL;
-    // }
-     for(int i = 0; i < 4; i++)
+    for(int i = 0; i < 4; ++i)
     {
-        if (array[i] != NULL)
-            delete array[i];
-        array[i] = 0;
+        delete array[i];
+        array[i] = NULL;
     }
 }
 
@@ -56,7 +50,6 @@ void MateriaSource::learnMateria(AMateria* mat)
         }
     }
     std::cout << "Already filled\n";
-    return ;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)

@@ -2,7 +2,7 @@
 
 Cure::Cure()
 {
-    _type = "Cure";
+    _type = "cure";
 }
 
 Cure::Cure(const Cure &other)
@@ -27,7 +27,7 @@ Cure* Cure::clone() const
 
 void Cure::use(ICharacter& obj) const
 {
-    std::cout <<"* heals "<< obj.getName() <<"'s wounds *" ;
+    std::cout <<"* heals "<< obj.getName() <<"'s wounds *\n" ;
 }
 
 Cure::~Cure(){}

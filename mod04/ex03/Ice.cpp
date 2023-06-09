@@ -1,20 +1,18 @@
 #include "Ice.hpp"
 
+Ice::~Ice(){}
 Ice::Ice()
 {
     _type = "ice";
-    std::cout << "Called Ice's default constructor\n";
 }
 
 Ice::Ice(const Ice &other)
 {
-    std::cout << "Called Ice's copy constructor\n";
     *this = other;
 }
 
 Ice& Ice::operator= (const Ice& rhs)
 {
-    std::cout << "Called Ice's copy assigment constructor\n";
     if (this != &rhs)
     {
         _type = rhs._type;
@@ -25,8 +23,8 @@ Ice& Ice::operator= (const Ice& rhs)
 
 Ice* Ice::clone() const
 {
-    Ice *copy_ice = new Ice;
-    return (copy_ice);
+    // Ice *copy_ice = new Ice(*this);
+    return (new Ice(*this));
 }
 
 void Ice::use(ICharacter& obj) const

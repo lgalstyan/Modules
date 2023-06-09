@@ -1,6 +1,12 @@
 #include <iostream>
+#include "AMateria.hpp"
+#include "MateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
-int main() {
+int main()
+{
 	IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -18,4 +24,5 @@ int main() {
 	delete bob;
     delete me;
     delete src;
-	return 0; }
+	return 0;
+}

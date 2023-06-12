@@ -14,7 +14,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     _name = name;
     _hit = 100;
-    _energy = 100;
+    _energy = 50;
     _damage = 30;
     std::cout   << BLUE << "Hi. I am " << _name
                 << " ScavTrap.I can attack, to take demage and be repaired.\n" << RESET;

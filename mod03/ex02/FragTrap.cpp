@@ -7,7 +7,7 @@ FragTrap::FragTrap() : ClapTrap()
     _energy = 50;
     _damage = 20;
     std::cout   << BLUE << "Hi. I am " << _name
-                << " FragTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
+                << " FragTrap.I can attack, to take demage and be repaired.\n" << RESET;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -17,7 +17,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     _energy = 50;
     _damage = 20;
     std::cout   << BLUE << "Hi. I am " << _name
-                << " FragTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
+                << " FragTrap.I can attack, to take demage and be repaired.\n" << RESET;
 }
 
 FragTrap::FragTrap(const FragTrap &other)
@@ -45,5 +45,5 @@ FragTrap::~FragTrap()
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap " << _name << " requests a positive high fives session!" << std::endl;
+    std::cout << "FragTrap " << _name << " requests a positive high fives session!\n";
 }

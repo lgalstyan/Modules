@@ -18,6 +18,7 @@ Dog& Dog::operator= (const Dog& rhs)
     std::cout << "Called Dog's copy assigment constructor\n";
     if (this != &rhs)
     {
+        _brain = new Brain(*rhs._brain);
         _type = rhs._type;
     }
     return (*this);

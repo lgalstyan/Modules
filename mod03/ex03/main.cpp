@@ -9,5 +9,6 @@ int main()
     frank.takeDamage(50);
     frank.beRepaired(15);
     frank.highFivesGuys();
+    frank.whoAmI();
     return (0);
 }

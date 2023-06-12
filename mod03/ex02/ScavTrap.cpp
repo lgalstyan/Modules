@@ -7,7 +7,7 @@ ScavTrap::ScavTrap() : ClapTrap()
     _energy = 50;
     _damage = 20;
     std::cout   << BLUE << "Hi. I am " << _name
-                << " ScavTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
+                << " ScavTrap.I can attack, to take demage and be repaired.\n" << RESET;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other)

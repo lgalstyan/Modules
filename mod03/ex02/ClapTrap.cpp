@@ -7,13 +7,13 @@ ClapTrap::ClapTrap()
     _energy = 10;
     _damage = 0;
     std::cout   << BLUE << "Hi. I am " << _name
-                << " ClapTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
+                << " ClapTrap.I can attack, to take demage and be repaired.\n" << RESET;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hit(10), _energy(10), _damage(0)
 {
     std::cout   << BLUE << "Hi. I am " << _name
-                << " ClapTrap.\nI can attack, to take demage and be repaired.\n" << RESET;
+                << " ClapTrap.I can attack, to take demage and be repaired.\n" << RESET;
 }
 
 ClapTrap::~ClapTrap()
@@ -56,7 +56,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if (_hit < amount)
     {
-        std::cout << "No enough hit points to do demage\n";
+        _hit = 0;
+        std::cout << "ClapTrap hasn't hit point.";
     }
     std::cout   << "ClapTrap named " << _name
                 << " takes " << amount << " damage\n";

@@ -4,7 +4,6 @@ int main()
 {
     ClapTrap Player1("First");
     ClapTrap Player2("Second");
-    Player1.takeDamage(41);
     Player1.attack("target1");
     Player1.attack("targe2");
     Player1.beRepaired(45);

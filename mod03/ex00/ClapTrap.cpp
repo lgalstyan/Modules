@@ -57,7 +57,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if (_hit < amount)
     {
-        std::cout << "ClapTrap died.\n";
+        _hit = 0;
+        std::cout << "ClapTrap hasn't hit point.";
     }
     std::cout   << "ClapTrap named " << _name
                 << " takes " << amount << " damage\n";

@@ -72,8 +72,15 @@ void Character::unequip(int idx)
         std::cout << "[Error] No materia are stored in that index\n";
         return ;
     }
-    array_on_floor[idx] = array[idx];
-    array[idx] = NULL;
+    for(int  i = 0; i < 4; ++i)
+    {
+        if ( array_on_floor[i] == NULL)
+        {
+            array_on_floor[i] = array[idx];
+            array[idx] = NULL;
+            return ;
+        }
+    }
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -83,4 +90,8 @@ void Character::use(int idx, ICharacter& target)
 }
 // Character(const Character &other);
 // Character& operator= (const Character& rhs);
-Character::~Character() {}
+
+Character::~Character()
+{
+    
+}

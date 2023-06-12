@@ -13,6 +13,8 @@ class Cat : public AAnimal
         ~Cat();
         std::string getType() const;
         void makeSound() const;
+        // void SetBrain(const std::string &str);
+        // void DisplayBrain();
     private:
         std::string _type;
         Brain *_brain;

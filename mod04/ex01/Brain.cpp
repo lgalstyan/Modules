@@ -2,6 +2,10 @@
 
 Brain::Brain()
 {
+    for (int i = 0; i < 100; i++)
+    {
+        _ideas[i] = "no_idea";
+    }
     std::cout << "Called Brain's default constructor\n";
 }
 
@@ -17,7 +21,12 @@ Brain& Brain::operator= (const Brain& rhs)
     if (this != &rhs)
     {
         for (int i = 0; i < 100; i++)
-            _ideas[i] = rhs._ideas[i];
+        {
+            if (!rhs._ideas[i].empty())
+            {
+                _ideas[i] = rhs._ideas[i];
+            }
+        }
     }
     return (*this);
 }

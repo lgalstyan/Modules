@@ -23,6 +23,7 @@ Cat& Cat::operator= (const Cat& rhs)
     std::cout << "Called Cat's copy assigment constructor\n";
     if (this != &rhs)
     {
+        _brain = new Brain(*rhs._brain);
         _type = rhs._type;
     }
     return (*this);

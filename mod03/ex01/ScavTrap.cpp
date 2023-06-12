@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap()
 {
     _name = "Anonymous";
     _hit = 100;

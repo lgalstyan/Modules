@@ -9,7 +9,7 @@ class Cat : public Animal
         Cat();
         Cat(const Cat &other);
         Cat& operator= (const Cat& rhs);
-        ~Cat();
+        virtual ~Cat();
         std::string getType() const;
         void makeSound() const;
     private:

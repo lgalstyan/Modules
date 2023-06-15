@@ -23,7 +23,6 @@ Ice& Ice::operator= (const Ice& rhs)
 
 Ice* Ice::clone() const
 {
-    // Ice *copy_ice = new Ice(*this);
     return (new Ice(*this));
 }
 

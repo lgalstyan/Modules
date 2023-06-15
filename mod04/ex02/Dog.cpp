@@ -17,7 +17,8 @@ Dog::Dog(std::string typ)
 Dog::Dog(const Dog &other)
 {
     std::cout << "Called Dog's copy constructor\n";
-    *this = other;
+    _brain = new Brain(*other._brain);
+    _type = other._type ;
 }
 
 Dog& Dog::operator= (const Dog& rhs)
@@ -25,9 +26,8 @@ Dog& Dog::operator= (const Dog& rhs)
     std::cout << "Called Dog's copy assigment constructor\n";
     if (this != &rhs)
     {
-        delete _brain;
-        _brain = new Brain(*rhs._brain);
         _type = rhs._type;
+        *this->_brain = *rhs._brain;
     }
     return (*this);
 }

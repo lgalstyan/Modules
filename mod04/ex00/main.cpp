@@ -17,12 +17,12 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
-    delete meta;
     delete i;
     delete j;
+    delete meta;
 }
 {
-    std::cout << RED << "Wrong\n";
+    std::cout << RED << "Wrong section\n";
     const WrongAnimal* meta = new WrongAnimal();
     const WrongAnimal* i = new WrongCat();
     std::cout << i->getType() << " " << std::endl;
@@ -33,5 +33,6 @@ int main()
     delete i;
     std::cout << RESET << std::endl;
 }
+// system("leaks Polymorphism");
 return (0);
 }

@@ -24,6 +24,6 @@ int main()
 	delete bob;
     delete me;
     delete src;
-	system("leaks Abstract");
+	// system("leaks Abstract");
 	return 0;
 }

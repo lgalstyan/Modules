@@ -11,8 +11,15 @@ Brain::Brain()
 
 Brain::Brain(const Brain &other)
 {
+    
     std::cout << "Called Brain's copy constructor\n";
-    *this = other;
+    for (int i = 0; i < 100; i++)
+    {
+        if (!other._ideas[i].empty())
+        {
+            _ideas[i] = other._ideas[i];
+        }
+    }
 }
 
 Brain& Brain::operator= (const Brain& rhs)
@@ -35,15 +42,3 @@ Brain::~Brain()
 {
     std::cout << "Called Brain's destructor\n";
 }
-
-// void Brain::set_idea(const std::string &idea)
-// {
-//     for (int  i = 0; i < 3; ++i)
-//         _ideas[i] = idea;
-// }
-
-// void Brain::display_ideas()
-// {
-//     for (int  i = 0; i < 3; ++i)
-//         std::cout << _ideas[i] << "\n";
-// }

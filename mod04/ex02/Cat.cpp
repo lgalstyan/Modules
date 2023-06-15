@@ -14,16 +14,11 @@ Cat::Cat(std::string typ)
     std::cout << "Called Cat's constructor with parametrs\n";
 }
 
-std::string Cat::getType() const
-{
-    return (_type);
-}
-
 Cat::Cat(const Cat &other)
 {
     std::cout << "Called Cat's copy constructor\n";
-    _brain = new Brain();
-    *this = other;
+    _brain = new Brain(*other._brain);
+    _type = other._type;
 }
 
 Cat& Cat::operator= (const Cat& rhs)
@@ -31,11 +26,15 @@ Cat& Cat::operator= (const Cat& rhs)
     std::cout << "Called Cat's copy assigment constructor\n";
     if (this != &rhs)
     {
-        delete _brain;
-        _brain = new Brain(*rhs._brain);
         _type = rhs._type;
+        *this->_brain = *rhs._brain;
     }
     return (*this);
+}
+
+std::string Cat::getType() const
+{
+    return (_type);
 }
 
 Cat::~Cat()
@@ -48,13 +47,3 @@ void Cat::makeSound() const
 {
     std::cout << "Meooow!!\n";
 }
-
-// void Cat::SetBrain(const std::string &str)
-// {
-//     _brain->set_idea(str);
-// }
-
-// void Cat::DisplayBrain()
-// {
-//     _brain->display_ideas();
-// }

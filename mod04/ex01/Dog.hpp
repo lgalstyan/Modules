@@ -9,7 +9,7 @@ class Dog : public Animal
         Dog(const Dog &other);
         Dog& operator= (const Dog& rhs);
         std::string getType() const;
-        ~Dog();
+        virtual ~Dog();
         void makeSound() const;
     private:
         std::string _type;

@@ -23,6 +23,7 @@ void	search_command(PhoneBook pbook)
         index = std::atoi(input.c_str());
         pbook.Search_with_index(index);
     }
+}
 
 int	check_fon(std::string str)
 {

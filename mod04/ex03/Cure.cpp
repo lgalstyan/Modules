@@ -21,7 +21,6 @@ Cure& Cure::operator= (const Cure& rhs)
 
 Cure* Cure::clone() const
 {
-    // Cure *copy_cure = new Cure(*this);
     return (new Cure(*this));
 }
 

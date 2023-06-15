@@ -19,9 +19,15 @@ MateriaSource::~MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource& op)
 {
-    *this = op;
+    for(int i = 0; i < 4; i++)
+    {
+        if (array[i] != NULL)
+            delete array[i];
+        array[i] = NULL;
+    }
+    for(int i = 0; i < 4 && op.array[i]; i++)
+        array[i] = op.array[i]->clone();
 }
-
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& op)
 {

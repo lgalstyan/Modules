@@ -3,9 +3,14 @@
 
 Character::Character()
 {
+    _name = "undefine";
    for(int i = 0; i < 4; ++i)
     {
         array[i] = NULL;
+    } 
+    for(int i = 0; i < 4; ++i)
+    {
+        array_on_floor[i] = NULL;
     } 
 }
 
@@ -16,27 +21,37 @@ Character::Character(std::string const & name)
     {
         array[i] = NULL;
     } 
+    for(int i = 0; i < 4; ++i)
+    {
+        array_on_floor[i] = NULL;
+    } 
 }
 
 Character::Character(const Character &other)
 {
     std::cout << "Called Character's copy constructor\n";
-    *this = other;
+    _name = other._name;
+    for(int i = 0; i < 4; i++)
+    {
+        if (other.array[i])
+            array[i] = other.array[i]->clone();
+        if (other.array_on_floor[i])
+            array_on_floor[i] = other.array_on_floor[i]->clone();
+    }
 }
 
-Character& Character::operator= (const Character& op)
+Character& Character::operator= (const Character& rhs)
 {
     std::cout << "Called Character's copy assigment constructor\n";
-     if (this != &op)
+    if (this != &rhs)
     {
         for(int i = 0; i < 4; i++)
         {
-            delete array[i];
-            array[i] = 0;
+            if (rhs.array[i])
+                array[i] = rhs.array[i]->clone();
+            if (rhs.array_on_floor[i])
+                array_on_floor[i] = rhs.array_on_floor[i]->clone();
         }
-        for(int i = 0; i < 4; i++)
-            if (op.array[i])
-                array[i] = op.array[i]->clone();
     }
     return (*this);
 }
@@ -88,10 +103,6 @@ void Character::use(int idx, ICharacter& target)
     if (idx >= 0 && idx < 4 && array[idx] != NULL)
         array[idx]->use(target);
 }
-// Character(const Character &other);
-// Character& operator= (const Character& rhs);
 
 Character::~Character()
-{
-    
-}
+{}

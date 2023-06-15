@@ -11,8 +11,15 @@ Brain::Brain()
 
 Brain::Brain(const Brain &other)
 {
+    
     std::cout << "Called Brain's copy constructor\n";
-    *this = other;
+    for (int i = 0; i < 100; i++)
+    {
+        if (!other._ideas[i].empty())
+        {
+            _ideas[i] = other._ideas[i];
+        }
+    }
 }
 
 Brain& Brain::operator= (const Brain& rhs)

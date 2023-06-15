@@ -5,13 +5,13 @@
 
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;
-    delete i;
+    // const Animal* j = new Dog();
+    // const Animal* i = new Cat();
+    // delete j;
+    // delete i;
 
     const int count = 4;
-    
+
     Animal* animal[count];
     for (int i = 0; i < count; ++i)
     {
@@ -25,6 +25,7 @@ int main()
     {
         delete animal[i];
     }
-    system("leaks Polymorphism");
+    
+    // system("leaks Brain");
     return (0);
 }

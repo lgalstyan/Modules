@@ -1,6 +1,5 @@
 #include "Ice.hpp"
 
-Ice::~Ice(){}
 Ice::Ice()
 {
     _type = "ice";
@@ -20,7 +19,6 @@ Ice& Ice::operator= (const Ice& rhs)
     return (*this);
 }
 
-
 Ice* Ice::clone() const
 {
     return (new Ice(*this));
@@ -30,3 +28,5 @@ void Ice::use(ICharacter& obj) const
 {
     std::cout << "* shoots an ice bolt at " << obj.getName() <<" *\n";
 }
+
+Ice::~Ice(){}
